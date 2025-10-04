@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groot – Employees</title>
+  <link rel="stylesheet" href="employee.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Groot</h2>
+            <ul>
+       <a href="dashboard.html"style="text-decoration: none; color: inherit;"> <li >Dashboard</li></a>
+      <a href="employee.html" style="text-decoration: none; color: inherit;"><li class="active">Employees</li></a>
+        <a href="department.html"style="text-decoration: none; color: inherit;"><li>Departments</li></a>
+        <a href="finance.html"style="text-decoration: none; color: inherit;"><li>Finance</li></a>
+       <a href="applications.html"style="text-decoration: none; color: inherit;"> <li>Applications</li></a>
+        <a href="contact.html"style="text-decoration: none; color: inherit;"> <li>Contact Us</li></a>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h3>Employees 👨‍💼</h3>
+        <input type="text" id="search" placeholder="Search employee...">
+      </header>
+
+      <!-- Employee Section -->
+      <section class="employee-section">
+        <button id="addEmployeeBtn" class="add-btn">+ Add Employee</button>
+        <table id="employeeTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Designation</th>
+      <th>Experience</th>
+      <th>Salary</th>
+      <th>Finance</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Narendra Mevada</td>
+      <td>Devops</td>
+      <td>Devops</td>
+      <td>10 Years</td>
+      <td>$50000</td>
+      <td>aws, Reports</td>
+      <td>
+        <button class="edit">✏️</button>
+        <button class="remove">❌</button>
+      </td>
+    </tr>
+    <tr>
+      <td>John Doe</td>
+      <td>HR</td>
+      <td>Manager</td>
+      <td>5 Years</td>
+      <td>$50000</td>
+      <td>Payroll, Reports</td>
+      <td>
+        <button class="edit">✏️</button>
+        <button class="remove">❌</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>Finance</td>
+      <td>Analyst</td>
+      <td>3 Years</td>
+      <td>$45000</td>
+      <td>Reports</td>
+      <td>
+        <button class="edit">✏️</button>
+        <button class="remove">❌</button>
+      </td>
+    </tr>
+  </tbody>
+
+
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="employee.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groot – HRMS Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Groot</h2>
+      <ul>
+       <a href="dashboard.html"style="text-decoration: none; color: inherit;"> <li class="active">Dashboard</li></a>
+      <a href="employee.html" style="text-decoration: none; color: inherit;"><li>Employees</li></a>
+        <a href="department.html"style="text-decoration: none; color: inherit;"><li>Departments</li></a>
+        <a href="finance.html"style="text-decoration: none; color: inherit;"><li>Finance</li></a>
+       <a href="applications.html"style="text-decoration: none; color: inherit;"> <li>Applications</li></a>
+        <a href="contact.html"style="text-decoration: none; color: inherit;"> <li>Contact Us</li></a>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h3>Hello Admin 👋</h3>
+        <input type="text" placeholder="Search...">
+      </header>
+
+      <!-- Stats -->
+      <section class="cards">
+        <div class="card">Employees <span>560</span></div>
+        <div class="card">Applicants <span>1050</span></div>
+        <div class="card">Attendance <span>470</span></div>
+        <div class="card">Projects <span>250</span></div>
+      </section>
+
+      <!-- Content -->
+      <section class="content">
+        <div class="box finance-box">
+          <h4>Today's Finance</h4>
+          <ul>
+
+          </ul>
+          <button class="add-btn">+ Add Task</button>
+        </div>
+
+        <div class="box meeting-box">
+          <h4>Upcoming Applications</h4>
+
+          <button class="add-btn">+ Add Meeting</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dasbord.js"></script>
+</body>
+</html>
