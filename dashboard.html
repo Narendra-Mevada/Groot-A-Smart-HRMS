@@ -11,7 +11,9 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
-      <h2>Groot</h2>
+  <div class="logo">
+    <img src="logo.png" alt="Groot">
+  </div>
       <ul>
        <a href="dashboard.html"style="text-decoration: none; color: inherit;"> <li class="active">Dashboard</li></a>
       <a href="employee.html" style="text-decoration: none; color: inherit;"><li>Employees</li></a>
@@ -26,30 +28,53 @@
     <main class="main">
       <!-- Topbar -->
       <header class="topbar">
-        <h3>Hello Admin 👋</h3>
-        <input type="text" placeholder="Search...">
+        <h3>Hello Groot 👋</h3>
+       
       </header>
 
       <!-- Stats -->
       <section class="cards">
-        <div class="card">Employees <span>560</span></div>
-        <div class="card">Applicants <span>1050</span></div>
-        <div class="card">Attendance <span>470</span></div>
-        <div class="card">Projects <span>250</span></div>
+        <div class="card">Employees <span>13</span></div>
+        <div class="card">Available <span>11</span></div>
+        <div class="card">On leave <span>2</span></div>
+        <div class="card">Projects <span>5</span></div>
       </section>
 
       <!-- Content -->
       <section class="content">
         <div class="box finance-box">
-          <h4>Today's Finance</h4>
+          <h4>Today's Tasks</h4>
           <ul>
-
+<li>
+<label><input type="checkbox"> <span>Update employee attendance records.</span></label>
+<br>
+</li>
+<li>
+<label><input type="checkbox"> <span>Draft a welcome email for a new hire.</span></label>
+<br></li>
+<li><label><input type="checkbox"> <span>Post a job opening on LinkedIn.</span></label>
+<br></li>
+<label><li><input type="checkbox"> <span>Schedule interviews for candidates.</span></label>
+<br></li><li>
+<label><input type="checkbox"> <span>Prepare a birthday list for this month.</span></label>
+</li>
           </ul>
           <button class="add-btn">+ Add Task</button>
         </div>
 
         <div class="box meeting-box">
-          <h4>Upcoming Applications</h4>
+          <h4>Upcoming Meetings</h4>
+<p>10 Oct @ 9:30 AM – Narendra Mevada</p>
+<p>10 Oct @ 11:00 AM – Priya Sharma
+</p>
+<p>10 Oct @ 2:00 PM – Rohit Verma
+</p>
+
+
+
+
+
+
 
           <button class="add-btn">+ Add Meeting</button>
         </div>

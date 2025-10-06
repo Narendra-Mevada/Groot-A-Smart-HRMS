@@ -25,7 +25,7 @@ addTaskBtn.addEventListener("click", () => {
   const task = prompt("Enter a new task:");
   if (task) {
     const li = document.createElement("li");
-    li.innerHTML = `<input type="checkbox"> ${task} <button class="remove">❌</button>`;
+    li.innerHTML = `<label><input type="checkbox"> <span>${task}</span></label>`;
     taskBox.appendChild(li);
   }
 });
@@ -34,18 +34,19 @@ addTaskBtn.addEventListener("click", () => {
 const meetingBox = document.querySelector(".meeting-box");
 const addMeetingBtn = meetingBox.querySelector(".add-btn");
 
+// addMeetingBtn.addEventListener("click", () => {
+//   const meeting = prompt("Enter meeting details (e.g., 15 Oct – Standup):");
+//   if (meeting) {
+//     const p = document.createElement("p");
+//     p.textContent = meeting; // ✅ no remove button
+//     meetingBox.insertBefore(p, addMeetingBtn);
+//   }
+// });
 addMeetingBtn.addEventListener("click", () => {
-  const meeting = prompt("Enter meeting details (e.g., 15 Oct – Standup):");
-  if (meeting) {
+  const meet = prompt("Enter a new meet:");
+  if (meet) {
     const p = document.createElement("p");
-    p.innerHTML = `${meeting} <button class="remove">❌</button>`;
+    p.innerHTML = `<span>${meet}</span>`;
     meetingBox.insertBefore(p, addMeetingBtn);
-  }
-});
-
-// ---- Remove Task or Meeting ----
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("remove")) {
-    e.target.parentElement.remove();
   }
 });
