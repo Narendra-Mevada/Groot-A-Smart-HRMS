@@ -122,19 +122,6 @@ button.edit, button.remove {
   background: #4e2d79;
 }
 
-/* Dark mode */
-.dark {
-  background: #1f1f2e;
-  color: #eee;
-}
-
-.dark .sidebar {
-  background: #2a2a3b;
-}
-
-.dark .dept-section {
-  background: #2f2f44;
-}
 /* ...existing code... */
 .sidebar .logo img {
   width: 120px;   /* adjust size */
@@ -154,4 +141,3 @@ button.edit, button.remove {
   text-align: center;
 }
 
-/* ...existing code... */

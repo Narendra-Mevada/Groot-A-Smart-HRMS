@@ -1,40 +1,31 @@
-// // =====================
-// // Sidebar Active Highlight
-// // =====================
+document.getElementById("addEmployeeBtn").addEventListener("click", () => {
+  // Ask user for details
+  const name = prompt("Enter Employee Name:");
 
-// // Get all sidebar list items
-// const sidebarItems = document.querySelectorAll(".sidebar ul li");
+  const department = prompt("Enter Department:");
+  const designation = prompt("Enter Designation:");
+  const experience = prompt("Enter Experience (e.g., 5 Years):");
+  const salary = prompt("Enter Salary:");
+  const expertise = prompt("Enter Expertise:");
+  const status = prompt("Enter Status (Present / On Leave):");
 
-// // Loop through each sidebar item
-// sidebarItems.forEach(function(item) {
-//   // When someone clicks a sidebar item
-//   item.addEventListener("click", function() {
-//     // Remove "active" from all items
-//     sidebarItems.forEach(function(el) {
-//       el.classList.remove("active");
-//     });
-//     // Add "active" to the clicked item
-//     item.classList.add("active");
-//   });
-// });
+  const table = document.getElementById("employeeTable").querySelector("tbody");
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>${name}</td>
+    <td>${department}</td>
+    <td>${designation}</td>
+    <td>${experience}</td>
+    <td>${salary}</td>
+    <td>${expertise}</td>
+    <td>${status}</td>
+    <td>
+      <button class="edit">Edit</button>
+      <button class="remove">Remove</button>
+    </td>
+  `;
 
 
-// // =====================
-// // Dark/Light Mode Toggle (if button exists)
-// // =====================
-// const modeButton = document.querySelector(".toggle-mode");
-
-// if (modeButton) {
-//   modeButton.addEventListener("click", function() {
-//     // Toggle dark mode
-//     document.body.classList.toggle("dark");
-    
-//     // Change button text
-//     if (document.body.classList.contains("dark")) {
-//       modeButton.textContent = "☀️ Light";
-//     } else {
-//       modeButton.textContent = "🌙 Dark";
-//     }
-//   });
-// }
-
+  table.appendChild(row);
+});
