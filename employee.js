@@ -20,12 +20,11 @@ document.getElementById("addEmployeeBtn").addEventListener("click", () => {
     <td>${salary}</td>
     <td>${expertise}</td>
     <td>${status}</td>
-    <td>
-      <button class="edit">Edit</button>
-      <button class="remove">Remove</button>
-    </td>
+  
   `;
 
 
   table.appendChild(row);
 });
+
+

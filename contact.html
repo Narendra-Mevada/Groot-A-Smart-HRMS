@@ -3,36 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Groot – Employees</title>
-  <link rel="stylesheet" href="department.css">
-
-</html>
+  <title>Groot – Contact Us</title>
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <div class="dashboard">
+
     <!-- Sidebar -->
     <aside class="sidebar">
-  <div class="logo">
-    <a href="index.html" style="text-decoration: none; color: inherit;"><img src="logo.png" alt="Groot"></a>
-  </div>
-            <ul>
-       <ul>
-       <a href="dashboard.html"style="text-decoration: none; color: inherit;"> <li >Dashboard</li></a>
-      <a href="employee.html" style="text-decoration: none; color: inherit;"><li>Employees</li></a>
-        <a href="department.html"style="text-decoration: none; color: inherit;"><li>Departments</li></a>
-        <a href="finance.html"style="text-decoration: none; color: inherit;"><li>Finance</li></a>
-       <a href="applications.html"style="text-decoration: none; color: inherit;"> <li>Applications</li></a>
-       <a href="contact.html"style="text-decoration: none; color: inherit;"> <li  class="active">Contact Us</li></a>
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+          <img src="logo.png" alt="Groot">
+        </a>
+      </div>
+      <ul>
+        <a href="dashboard.html" style="text-decoration: none; color: inherit;"><li>Dashboard</li></a>
+        <a href="employee.html" style="text-decoration: none; color: inherit;"><li>Employees</li></a>
+        <a href="department.html" style="text-decoration: none; color: inherit;"><li>Departments</li></a>
+        <a href="finance.html" style="text-decoration: none; color: inherit;"><li>Finance</li></a>
+        <a href="Announcements.html" style="text-decoration: none; color: inherit;"><li>Announcements</li></a>
+        <a href="contact.html" style="text-decoration: none; color: inherit;"><li class="active">Contact Us</li></a>
       </ul>
     </aside>
 
-    <!-- Coming Soon -->
-    <div class="coming-soon-container">
-      <h1 class="coming-soon">Coming Soon</h1>
-    </div>
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <h3>Contact Us</h3>
+      </header>
+
+      <section class="contact-section">
+        <h2>We’d Love to Hear From You</h2>
+        <p>Have any questions or feedback? Drop us a message below.</p>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="send-btn" id="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:narendramevada950@gmail.com" style="text-decoration: none; color: inherit;" >narendramevada950@gmail.com</a></p>
+          <p><strong>Phone:</strong><a href="tel:+919313890981" style="text-decoration: none; color: inherit;" > +91 9313890981</a></p>
+          <p><strong>Address:</strong> Ahmedabad, India</p>
+        </div>
+      </section>
+    </main>
   </div>
-<!-- ...existing code... -->
-<script src="department.js"></script>
+<script>
+  document.getElementById("submit").addEventListener("click", function() {
+  // Ask user for details
+ alert("Thank You!");
+  });
+</script>
 </body>
-</html>
 </html>

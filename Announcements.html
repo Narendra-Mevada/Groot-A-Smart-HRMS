@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groot – Employees</title>
+  <link rel="stylesheet" href="Announcements.css">
+
+</html>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+   <aside class="sidebar">
+  <div class="logo">
+    <a href="index.html" style="text-decoration: none; color: inherit;"><img src="logo.png" alt="Groot"></a>
+  </div>
+         <ul>
+       <a href="dashboard.html"style="text-decoration: none; color: inherit;"> <li >Dashboard</li></a>
+      <a href="employee.html" style="text-decoration: none; color: inherit;"><li>Employees</li></a>
+        <a href="department.html"style="text-decoration: none; color: inherit;"><li>Departments</li></a>
+        <a href="finance.html"style="text-decoration: none; color: inherit;"><li>Finance</li></a>
+       <a href="Announcements.html"style="text-decoration: none; color: inherit;"> <li class="active">Announcements</li></a>
+        <a href="contact.html"style="text-decoration: none; color: inherit;"> <li>Contact Us</li></a>
+      </ul>
+    </aside>
+
+    <div class="announcements-container">
+    <div class="header">
+      <h1>Announcements</h1>
+     
+    </div>
+
+    <div class="announcement-list" id="announcementList">
+      <div class="announcement-card">
+        <h3>Server Maintenance</h3>
+        <p>The server will be down on 12 Nov</strong> from 1 AM to 4 AM for routine updates.</p>
+        <span class="date">Posted on: 10 Nov 2025</span>
+      </div>
+
+      <div class="announcement-card">
+        <h3>Team Meeting</h3>
+        <p>All employees are requested to attend the meeting scheduled for 11 Nov</strong> at 10:00 AM.</p>
+        <span class="date">Posted on: 9 Nov 2025</span>
+      </div>
+      <div class="announcement-card">
+        <h3>System Update/New Feature Rollout</h3>
+        <p>This informs users about an upcoming change or improvement that requires action or attention from their side.</p>
+        <span class="date">Posted on: 11 Nov 2025</span>
+      </div>
+      <div class="announcement-card">
+        <h3>Office/Facility Update</h3>
+        <p>This covers changes related to the physical workspace, which is relevant to all on-site employees.</p>
+        <span class="date">Posted on: 10 Nov 2025</span>
+      </div>
+    </div>
+
+    <!-- Add New Announcement Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Add Announcement</h2>
+        <input type="text" id="title" placeholder="Title" />
+        <textarea id="message" placeholder="Message"></textarea>
+        <div class="modal-actions">
+          <button id="saveBtn">Save</button>
+          <button id="closeBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ...existing code... -->
+<script src="department.js"></script>
+</body>
+</html>
+</html>

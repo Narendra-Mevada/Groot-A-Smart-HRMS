@@ -1,0 +1,116 @@
+body {
+margin: 0px;
+font-family: Arial;
+background-color: #f9f9ff;
+color: #222
+}
+
+/* layout */
+.dashboard{
+display: flex
+}
+.sidebar {
+  width: 200px;
+  background: #fff;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  color: #7c4fb6;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: #7c4fb6;
+  color: #fff;
+}
+
+.sidebar .logo img{
+width: 100px;
+margin-left: 30px;
+margin-bottom: 20px;
+}
+
+/* finance part */
+.finance-section{
+padding: 30px;
+}
+
+.finance-section h2{
+color: #6b3fa3;
+}
+
+.finance-cards{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 25px
+}
+
+.finance-cards .card{
+background-color: #fff;
+padding: 18px;
+border-radius: 8px;
+box-shadow: 0 0 4px rgba(0,0,0,0.2);
+text-align: center
+}
+
+.finance-cards .card h3{
+color: #444444;
+font-size: 18px;
+}
+
+.finance-cards .card p{
+font-size: 22px;
+color: #6b3fa3;
+font-weight: 600;
+}
+
+.add-btn{
+background: #7c4fb6;
+color: white;
+border: 0;
+padding: 10px 18px;
+border-radius: 5px
+font-size: 15px;
+cursor: pointer
+}
+
+.add-btn:hover{
+background: #5e2ca5
+}
+
+/* transaction table */
+.transaction-table{
+width: 100%;
+border-collapse: collapse;
+background: white;
+border-radius: 10px;
+}
+
+.transaction-table th, .transaction-table td{
+padding: 12px;
+text-align: left;
+border-bottom: 1px solid #ccc
+}
+
+.transaction-table th{
+background-color: #7c4fb6;
+color: #fff;
+}
+

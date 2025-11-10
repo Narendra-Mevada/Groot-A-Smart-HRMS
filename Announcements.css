@@ -1,0 +1,169 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f9fc;
+  color: #333;
+  transition: 0.3s ease;
+}
+
+/* Layout */
+.dashboard {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #fff;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  color: #7c4fb6;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+  background: #7c4fb6;
+  color: #fff;
+}
+
+
+.announcements-container {
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #333;
+}
+
+#addBtn {
+  background-color: #6f42c1;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#addBtn:hover {
+  background-color: #5b34a5;
+}
+
+.announcement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.announcement-card {
+  background-color: #fff;
+  border-left: 5px solid #6f42c1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.announcement-card h3 {
+  color: #333;
+  margin: 0 0 8px;
+}
+
+.announcement-card p {
+  color: #555;
+  margin: 0 0 10px;
+}
+
+.date {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-content h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+#saveBtn {
+  background-color: #6f42c1;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#closeBtn {
+  background-color: #ccc;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.sidebar .logo img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}

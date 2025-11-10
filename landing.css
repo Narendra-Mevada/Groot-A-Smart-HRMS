@@ -94,29 +94,48 @@ width: auto;
 .highlight {
   color: #7c4fb6;
 }
-/* Features */
+/* Features Section */
 .features {
-  display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
-  gap: 25px;
-  padding: 60px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 60px 80px;
   background: #f8f9fc;
-}
-.features h3{
-    color:#7c4fb6;
-}
-.feature {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  text-align: center;
-  transition: 0.3s;
+  flex-wrap: wrap; /* makes it responsive for smaller screens */
 }
 
-.feature:hover {
-  transform: translateY(-5px);
+.feature-card {
+  background: #fff;
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
 }
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: #7c4fb6;
+  box-shadow: 0 10px 25px rgba(124, 79, 182, 0.2);
+}
+
+.feature-card h3 {
+  color: #7c4fb6;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
 /* Dashboard Preview Section */
 .dashboard-preview {
   display: flex;
@@ -240,7 +259,7 @@ width: auto;
 
 /* Footer */
 .site-footer {
-  background: #f8f9fc;
+  background: #e2e3e6;
   padding: 20px 50px;
   border-top: 1px solid #eee;
 }
@@ -281,4 +300,38 @@ width: auto;
 .footer-copy {
   font-size: 0.9em;
   color: #666;
+}
+.about {
+  background: #f8f9fc;
+  padding: 50px 60px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.about-container {
+  max-width: 100%;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.about-text h2 {
+  color: #5e2ca5;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.about-text .highlight {
+  color: #7c4fb6;
+}
+
+.about-text p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.about-text strong {
+  color: #5e2ca5;
 }

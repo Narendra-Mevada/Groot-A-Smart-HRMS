@@ -45,7 +45,7 @@ body {
   color: #fff;
 }
 
-.toggle-mode {
+/* .toggle-mode {
   margin-top: 20px;
   width: 100%;
   padding: 8px;
@@ -53,7 +53,7 @@ body {
   background: #eee;
   border-radius: 6px;
   cursor: pointer;
-}
+} */
 
 /* Main */
 .main {
@@ -129,15 +129,60 @@ button.edit, button.remove {
   display: block;
   margin: 0 auto 20px; /* center + bottom space */
 }
-.coming-soon-container {
+/* ...add department... */
+.main-content {
   flex: 1;
+  padding: 40px;
+}
+
+.topbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh; /* ensures vertical centering */
+  margin-bottom: 30px;
 }
 
-.coming-soon {
-  text-align: center;
+.add-btn {
+  background: #7c4fb6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
 }
 
+.add-btn:hover {
+  background: #542b88;
+}
+
+.departments-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.dept-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.dept-card:hover {
+  transform: translateY(-5px);
+}
+
+.dept-card .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dept-card button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2em;
+}
