@@ -1,9 +1,9 @@
 pipeline {
-    agent { label "colon" }
+    agent { label 'colon' }
 
-   environment {
-        DOCKER_IMAGE = "groot995/static-website"
-        DOCKER_TAG   = "latest"
+    environment {
+        DOCKER_IMAGE = 'groot995/static-website'
+        DOCKER_TAG   = 'latest'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
     }
 
@@ -18,19 +18,22 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
+                sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
             }
         }
 
         stage('Docker Hub Login') {
             steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh '''
+                    echo ${DOCKERHUB_CREDENTIALS_PSW} | \
+                    docker login -u ${DOCKERHUB_CREDENTIALS_USR} --password-stdin
+                '''
             }
         }
 
         stage('Push Image to Docker Hub') {
             steps {
-                sh 'docker push $DOCKER_IMAGE:$DOCKER_TAG'
+                sh 'docker push ${DOCKER_IMAGE}:${DOCKER_TAG}'
             }
         }
 
@@ -38,17 +41,16 @@ pipeline {
             steps {
                 sh 'docker compose down || true'
                 sh 'docker compose up -d'
-
             }
         }
     }
 
     post {
         success {
-            echo "✅ Deployment Successful"
+            echo 'Deployment Successful'
         }
         failure {
-            echo "❌ Deployment Failed"
+            echo 'Deployment Failed'
         }
     }
 }
