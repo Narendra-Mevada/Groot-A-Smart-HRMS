@@ -1,7 +1,11 @@
 pipeline {
     agent { label "colon" }
 
- 
+   environment {
+        DOCKER_IMAGE = "groot995/static-website"
+        DOCKER_TAG   = "latest"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+    }
 
     stages {
 
