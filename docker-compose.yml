@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   web:
-    image: yourdockerhubusername/static-website:latest
+    image: groot995/static-website:latest
     container_name: static_web
     ports:
       - "80:80"
