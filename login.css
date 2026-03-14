@@ -1,0 +1,163 @@
+/* Login & Reset-Password pages */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-logo img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 8px;
+}
+
+.login-logo h2 {
+  margin: 6px 0 4px;
+  color: #7c4fb6;
+  font-size: 1.6em;
+}
+
+.login-logo p {
+  color: #666;
+  font-size: 0.95em;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+  font-size: 0.9em;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #7c4fb6;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #7c4fb6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 6px;
+}
+
+.login-btn:hover {
+  background: #5e2ca5;
+}
+
+.error-msg {
+  color: #c0392b;
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+}
+
+.success-msg {
+  color: #1a6e3c;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+}
+
+.forgot-link {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  color: #7c4fb6;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s;
+}
+
+.forgot-link:hover {
+  color: #5e2ca5;
+  text-decoration: underline;
+}
+
+.logout-btn {
+  padding: 7px 16px;
+  background: #7c4fb6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #5e2ca5;
+}
+
+.shell-link {
+  display: inline-block;
+  padding: 7px 16px;
+  background: #2d6a4f;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background 0.3s;
+  margin-right: 10px;
+}
+
+.shell-link:hover {
+  background: #1b4332;
+}

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Groot – HRMS Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
   <div class="dashboard">
@@ -22,14 +23,16 @@
        <a href="applications.html"style="text-decoration: none; color: inherit;"> <li>Applications</li></a>
         <a href="contact.html"style="text-decoration: none; color: inherit;"> <li>Contact Us</li></a>
       </ul>
+      <!-- Admin Shell link rendered by JS for root only -->
+      <div id="shellNav"></div>
     </aside>
 
     <!-- Main -->
     <main class="main">
       <!-- Topbar -->
       <header class="topbar">
-        <h3>Hello $root </h3>
-       
+        <h3 id="greeting">Hello</h3>
+        <div id="topbarActions"></div>
       </header>
 
       <!-- Stats -->
@@ -82,6 +85,22 @@
     </main>
   </div>
 
+  <script src="auth.js"></script>
   <script src="dasbord.js"></script>
+  <script>
+    var user = requireAuth();
+    document.getElementById('greeting').textContent = 'Hello, ' + user.displayName;
+
+    // Show Admin Shell link for root users
+    if (user.role === 'root') {
+      document.getElementById('shellNav').innerHTML =
+        '<a href="shell.html" style="text-decoration:none;color:inherit;">' +
+        '<li style="background:#2d6a4f;color:#fff;margin-top:10px;">Admin Shell</li></a>';
+    }
+
+    // Logout button
+    document.getElementById('topbarActions').innerHTML =
+      '<button class="logout-btn" onclick="logout()">Logout</button>';
+  </script>
 </body>
 </html>

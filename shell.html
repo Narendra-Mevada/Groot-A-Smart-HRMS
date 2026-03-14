@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groot – Admin Shell</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+  <style>
+    .shell-container {
+      flex: 1;
+      padding: 20px;
+    }
+    .shell-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .shell-header h2 {
+      color: #7c4fb6;
+      margin: 0;
+    }
+    .terminal {
+      background: #1e1e2e;
+      border-radius: 12px;
+      padding: 20px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .terminal-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+    }
+    .dot-red   { background: #ff5f57; }
+    .dot-yellow{ background: #febc2e; }
+    .dot-green { background: #28c840; }
+    .terminal-title {
+      color: #aaa;
+      font-size: 0.85em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .output {
+      flex: 1;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95em;
+      color: #cdd6f4;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      margin-bottom: 12px;
+      min-height: 300px;
+    }
+    .output .line-prompt { color: #89b4fa; }
+    .output .line-result { color: #a6e3a1; }
+    .output .line-error  { color: #f38ba8; }
+    .output .line-info   { color: #cba6f7; }
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .input-row span {
+      font-family: 'Courier New', monospace;
+      color: #89b4fa;
+      white-space: nowrap;
+    }
+    .cmd-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #cdd6f4;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95em;
+    }
+    .info-banner {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit;"><img src="logo.png" alt="Groot"></a>
+      </div>
+      <ul>
+        <a href="dashboard.html" style="text-decoration: none; color: inherit;"><li>Dashboard</li></a>
+        <a href="employee.html"  style="text-decoration: none; color: inherit;"><li>Employees</li></a>
+        <a href="department.html"style="text-decoration: none; color: inherit;"><li>Departments</li></a>
+        <a href="finance.html"   style="text-decoration: none; color: inherit;"><li>Finance</li></a>
+        <a href="applications.html" style="text-decoration: none; color: inherit;"><li>Applications</li></a>
+        <a href="contact.html"   style="text-decoration: none; color: inherit;"><li>Contact Us</li></a>
+        <a href="shell.html"     style="text-decoration: none; color: inherit;"><li class="active">Admin Shell</li></a>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="shell-container">
+        <div class="shell-header">
+          <h2>🖥️ Admin Shell</h2>
+          <div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+          </div>
+        </div>
+
+        <div class="info-banner">
+          ⚠️ <strong>Admin Shell</strong> – This terminal is restricted to <strong>root</strong> users only.
+          Type <code>help</code> to list available commands.
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+            <span class="terminal-title">groot-hrms — admin shell</span>
+          </div>
+          <div class="output" id="output"></div>
+          <div class="input-row">
+            <span id="prompt">root@groot:~$</span>
+            <input class="cmd-input" id="cmdInput" type="text" placeholder="Type a command…" autofocus>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    // Restrict to root only
+    var currentUser = requireAuth('root');
+
+    var output  = document.getElementById('output');
+    var cmdInput = document.getElementById('cmdInput');
+
+    var commandHistory = [];
+    var historyIndex = -1;
+
+    var HELP_TEXT = [
+      'Available commands:',
+      '  help           – Show this help message',
+      '  whoami         – Show current user info',
+      '  users          – List HRMS user accounts',
+      '  reset-pw <user> <newpass> – Reset a user password (root only)',
+      '  clear          – Clear the terminal',
+      '  logout         – Log out of the HRMS',
+      ''
+    ].join('\n');
+
+    function appendLine(text, cls) {
+      var line = document.createElement('div');
+      line.className = cls || '';
+      line.textContent = text;
+      output.appendChild(line);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function runCommand(raw) {
+      var cmd = raw.trim();
+      appendLine('root@groot:~$ ' + cmd, 'line-prompt');
+
+      if (!cmd) return;
+
+      var parts = cmd.split(/\s+/);
+      var name  = parts[0].toLowerCase();
+
+      if (name === 'help') {
+        appendLine(HELP_TEXT, 'line-info');
+
+      } else if (name === 'whoami') {
+        appendLine('Username : ' + currentUser.username, 'line-result');
+        appendLine('Role     : ' + currentUser.role,     'line-result');
+        appendLine('Name     : ' + currentUser.displayName, 'line-result');
+
+      } else if (name === 'users') {
+        var stored = JSON.parse(localStorage.getItem('groot_hrms_users') || '{}');
+        Object.keys(stored).forEach(function (u) {
+          appendLine('  ' + u + '  (' + stored[u].role + ')', 'line-result');
+        });
+
+      } else if (name === 'reset-pw') {
+        if (parts.length < 3) {
+          appendLine('Usage: reset-pw <username> <newpassword>', 'line-error');
+        } else {
+          var target  = parts[1];
+          var newpass = parts[2];
+          if (newpass.length < 6) {
+            appendLine('Error: password must be at least 6 characters.', 'line-error');
+          } else {
+            var stored2 = JSON.parse(localStorage.getItem('groot_hrms_users') || '{}');
+            if (!stored2[target]) {
+              appendLine('Error: user "' + target + '" not found.', 'line-error');
+            } else {
+              stored2[target].password = btoa(newpass);
+              localStorage.setItem('groot_hrms_users', JSON.stringify(stored2));
+              appendLine('Password for "' + target + '" updated successfully.', 'line-result');
+            }
+          }
+        }
+
+      } else if (name === 'clear') {
+        output.innerHTML = '';
+
+      } else if (name === 'logout') {
+        appendLine('Logging out…', 'line-info');
+        setTimeout(logout, 800);
+
+      } else {
+        appendLine('Command not found: ' + name + '. Type "help" for a list.', 'line-error');
+      }
+    }
+
+    // Initial greeting
+    appendLine('Groot HRMS Admin Shell  –  session started as ' + currentUser.username, 'line-info');
+    appendLine('Type "help" for available commands.', 'line-info');
+    appendLine('', '');
+
+    cmdInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        var val = cmdInput.value;
+        if (val.trim()) {
+          commandHistory.unshift(val);
+          historyIndex = -1;
+        }
+        runCommand(val);
+        cmdInput.value = '';
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          cmdInput.value = commandHistory[historyIndex];
+        }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (historyIndex > 0) {
+          historyIndex--;
+          cmdInput.value = commandHistory[historyIndex];
+        } else {
+          historyIndex = -1;
+          cmdInput.value = '';
+        }
+      }
+    });
+
+    // Focus input when clicking anywhere in terminal
+    document.querySelector('.terminal').addEventListener('click', function () {
+      cmdInput.focus();
+    });
+  </script>
+</body>
+</html>
