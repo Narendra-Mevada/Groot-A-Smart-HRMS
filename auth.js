@@ -57,7 +57,7 @@ function requireAuth(requiredRole) {
     return null;
   }
   if (requiredRole && user.role !== requiredRole) {
-    alert('Access denied. Insufficient permissions.');
+    alert('Access denied. This page requires ' + requiredRole + ' privileges.');
     window.location.href = 'dashboard.html';
     return null;
   }
